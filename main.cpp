@@ -44,6 +44,7 @@ void push_node(int data, Node** head) {
 }
 
 
+// Reverse a linked list my creating a new one from an already existing list.
 Node* reverse_list(Node* node) {
     Node* new_head = new Node(node->data);
 
