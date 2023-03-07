@@ -44,6 +44,18 @@ void push_node(int data, Node** head) {
 }
 
 
+Node* reverse_list(Node* node) {
+    Node* new_head = new Node(node->data);
+
+    while (node->next != NULL) {
+        push_node(node->next->data, &new_head);
+        node = node->next;
+    }
+
+    return new_head;
+}
+
+
 int main() {
     // Create initial head for list
     Node* head = new Node(1);
@@ -60,7 +72,14 @@ int main() {
     append_node(25, &head);
     append_node(4, &head);
 
+    cout << "### Regular Traversal ###" << endl;
     traverse_list(head);
+
+
+    // Reverse a linked list
+    cout << endl << "### Reversed Traversal ###" << endl;
+    Node* reversed_head = reverse_list(head);
+    traverse_list(reversed_head);
 
     return 0;
 }
